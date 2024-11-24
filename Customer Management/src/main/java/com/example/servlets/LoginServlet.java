@@ -13,18 +13,13 @@ import com.example.dao.UserDao;
 import com.example.models.User;
 import com.example.utils.JWTUtils;
 
-/**
- * Servlet implementation class LoginServlet
- */
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+
     public LoginServlet() {
-       
-        // TODO Auto-generated constructor stub
+
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -38,10 +33,11 @@ public class LoginServlet extends HttpServlet {
 
 	            if (user != null) {
 	                String token = JWTUtils.generateToken(user.getUsername(), user.getRole());
-	               //System.out.println(token);
+	               
 	                
 	                HttpSession session = request.getSession();
 	                session.setAttribute("jwtToken", token);
+	               
 	                //response.setHeader("Authorization", "Bearer " + token);
 
 	                if ("ADMIN".equals(user.getRole())) {

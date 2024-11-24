@@ -86,7 +86,7 @@ public class AdminServlet extends HttpServlet {
                     response.sendRedirect("admin-dashboard.jsp?error=Failed to update customer");
                 }
             } else if ("delete".equals(action)) {
-                // Delete customer
+                
                 int id = Integer.parseInt(request.getParameter("id"));
 
                 if (customerdaO.deleteCustomer(id)) {
@@ -94,7 +94,7 @@ public class AdminServlet extends HttpServlet {
                 } else {
                     response.sendRedirect("admin-dashboard.jsp?error=Failed to delete customer");
                 }
-            // Add more actions for update and delete.
+            
             }
             } catch (Exception e) {
             e.printStackTrace();

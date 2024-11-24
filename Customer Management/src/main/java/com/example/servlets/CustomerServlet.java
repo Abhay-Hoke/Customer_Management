@@ -14,9 +14,7 @@ import com.example.dao.CustomerDao;
 import com.example.models.Customer;
 import com.example.utils.JWTUtils;
 
-/**
- * Servlet implementation class CustomerServlet
- */
+
 public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -61,7 +59,7 @@ public class CustomerServlet extends HttpServlet {
 		            request.getRequestDispatcher("admin-dashboard.jsp").forward(request, response);
 		            else if("USER".equals(role))
 		            	request.getRequestDispatcher("customer-list.jsp").forward(request, response);
-	            //response.sendRedirect("customer-list.jsp?error=An error occurred");
+	           
 	        }
 	    
 	}
