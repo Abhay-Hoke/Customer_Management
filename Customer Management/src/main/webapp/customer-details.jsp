@@ -25,6 +25,7 @@
 <body>
 <%@include file="Header.jsp" %>
 <%
+//response.setHeader("Authorization", "Bearer " + token);
 if (!"ADMIN".equals(role)) {
     response.sendError(HttpServletResponse.SC_FORBIDDEN, "Access denied");
     return;
@@ -44,8 +45,7 @@ if (!"ADMIN".equals(role)) {
 <div class="form-group">  <input class="input" type="email" id="email" name="email" required placeholder="Email"> </div>
 
 <div class="form-group"> <input class="input" type="text" id="phone" name="phone" required placeholder="Phone"> </div> 
-
-<div class="form-group"><input type="hidden" name="createdBy" value="1"> 
+ 
 
 <button type="submit" class="btn btn-primary">Add Customer</button></div>
 

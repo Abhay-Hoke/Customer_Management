@@ -6,14 +6,14 @@
 <%
     HttpSession sess = request.getSession(false);
 	String token = (String) session.getAttribute("jwtToken");
-	if (token == null) {
-	    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized access");
-	    return;
-	}
+	//if (token == null) {
+	//    response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized access");
+	//    return;
+	//}
 
 	
 	String role = JWTUtils.validateToken(token).get("role", String.class);
-   
+   //String role = (String) request.getAttribute("role");
     List<String> customerAttributes = List.of("First_Name","City", "Email", "Phone"); // Populate from DAO if needed
 %>
 

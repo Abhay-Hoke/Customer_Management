@@ -12,14 +12,20 @@
 </head>
 <body>
 <%@include file="Header.jsp"%>
-<% HttpSession se = request.getSession(false);
+<% 
+
+
+HttpSession se = request.getSession(false);
 String t = (String) se.getAttribute("jwtToken");
+response.setHeader("Authorization", "Bearer " + t);
+
+request.setAttribute("Authorization", "Bearer " + t);
 if (t == null) {
     response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized access");
     return;
 }
 
-
+//String r = (String) request.getAttribute("role");
 String r = JWTUtils.validateToken(token).get("role", String.class); %>
 <h2>Customer List</h2>
     <table border="1">

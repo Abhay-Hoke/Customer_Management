@@ -13,7 +13,11 @@ import com.example.models.Customer;
 
 /**
  * Servlet implementation class CustomerListServlet
+ * 
+ * 
  */
+
+
 public class CustomerListServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

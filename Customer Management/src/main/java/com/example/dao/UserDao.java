@@ -25,10 +25,12 @@ public class UserDao {
 	
 	public User validateLogin(String username, String password) throws SQLException, ClassNotFoundException {
         String query = "SELECT * FROM users WHERE username = ?";
+        //System.out.println(username);
         try (Connection con = DbUtils.connectDB();
                 PreparedStatement ps = con.prepareStatement(query)){
                 	ps.setString(1, username);
             ResultSet rs = ps.executeQuery();
+            //System.out.println(rs.next());
             if (rs.next() && BCryptUtils.checkPassword(password, rs.getString("password"))) {
                 User user = new User();
                 user.setId(rs.getInt("id"));

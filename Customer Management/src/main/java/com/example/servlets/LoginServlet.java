@@ -16,20 +16,19 @@ import com.example.utils.JWTUtils;
 /**
  * Servlet implementation class LoginServlet
  */
+
+
+
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-       
-        // TODO Auto-generated constructor stub
-    }
-
+   
+  
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		 String username = request.getParameter("username");
+		 //System.out.println(username);
 	     String password = request.getParameter("password");
 
 	        try {
@@ -42,10 +41,25 @@ public class LoginServlet extends HttpServlet {
 	                
 	                HttpSession session = request.getSession();
 	                session.setAttribute("jwtToken", token);
+	                
+	               //String role= (String) request.getAttribute("role");
 	                //response.setHeader("Authorization", "Bearer " + token);
-
+	                //response.setStatus(HttpServletResponse.SC_OK);
+	                
+	                //System.out.println(HttpServletResponse.SC_OK);
+	                //response.getWriter().write("Login successful. Token sent in header.");
+	                
+	                
+	                
+	                
+	                //auth try
+//	                response.setContentType("application/json");
+//	                response.getWriter().write("{\"token\": \"" + token + "\"}");
+//	                
+	                
+//user.getRole()
 	                if ("ADMIN".equals(user.getRole())) {
-	                    response.sendRedirect("admin-dashboard.jsp");
+	                   response.sendRedirect("admin-dashboard.jsp");
 	                } else {
 	                    response.sendRedirect("customer-list.jsp");
 	                }

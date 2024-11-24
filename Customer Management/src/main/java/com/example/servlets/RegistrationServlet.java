@@ -13,6 +13,10 @@ import com.example.models.User;
 /**
  * Servlet implementation class RegistrationServlet
  */
+
+
+
+
 public class RegistrationServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -21,7 +25,7 @@ public class RegistrationServlet extends HttpServlet {
      */
     public RegistrationServlet() {
      
-        // TODO Auto-generated constructor stub
+   
     }
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

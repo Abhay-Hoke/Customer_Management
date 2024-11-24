@@ -17,6 +17,9 @@ import com.example.utils.JWTUtils;
 /**
  * Servlet implementation class CustomerServlet
  */
+
+
+
 public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -33,6 +36,9 @@ public class CustomerServlet extends HttpServlet {
 	        HttpSession se = request.getSession(false);
 	        String token = (String) se.getAttribute("jwtToken");
 	        String role = JWTUtils.validateToken(token).get("role", String.class);
+	        
+	        
+	        //String role = (String) request.getAttribute("role");
             
 	        try {
 	            List<Customer> customers;
@@ -61,7 +67,7 @@ public class CustomerServlet extends HttpServlet {
 		            request.getRequestDispatcher("admin-dashboard.jsp").forward(request, response);
 		            else if("USER".equals(role))
 		            	request.getRequestDispatcher("customer-list.jsp").forward(request, response);
-	            //response.sendRedirect("customer-list.jsp?error=An error occurred");
+	           
 	        }
 	    
 	}

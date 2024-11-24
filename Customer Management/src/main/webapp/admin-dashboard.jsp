@@ -10,9 +10,17 @@
 <body>
     <h2>Dashboard</h2>
 <%@ include file="Header.jsp"%>
-<% 	
-String t = (String) session.getAttribute("jwtToken");
+
+<%
+
+    String t = (String) session.getAttribute("jwtToken");
+	response.setHeader("Authorization", "Bearer " + t);
+
 	String r = JWTUtils.validateToken(t).get("role", String.class);
+	
+	//String r = (String) request.getAttribute("role");
+	//System.out.println(r);
+	
 	if (!"ADMIN".equals(r)) {
 	    response.sendError(HttpServletResponse.SC_FORBIDDEN, "Access denied");
 	    return;

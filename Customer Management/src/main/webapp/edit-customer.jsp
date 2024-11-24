@@ -14,6 +14,7 @@
 </head>
 <%@include file="Header.jsp" %>
 <%
+
 if (!"ADMIN".equals(role)) {
 	    response.sendError(HttpServletResponse.SC_FORBIDDEN, "Access denied");
 	    return;
