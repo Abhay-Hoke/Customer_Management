@@ -64,12 +64,12 @@
     <servlet-name>CustomerServlet</servlet-name>
     <url-pattern>/CustomerServlet</url-pattern>
   </servlet-mapping>
-<!--  <filter>
+  <filter>
     <filter-name>JWTAuthenticationFilter</filter-name>
     <filter-class>com.example.utils.JWTAuthenticationFilter</filter-class>
 </filter>
 <filter-mapping>
     <filter-name>JWTAuthenticationFilter</filter-name>
     <url-pattern>/auth/*</url-pattern>
-</filter-mapping> -->
+</filter-mapping> 
 </web-app>
